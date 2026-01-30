@@ -1,53 +1,104 @@
 # Behavioral Design Patterns
 
-Patterns concerned with algorithms and assignment of responsibilities between objects, dealing with object collaboration and communication.
+**Behavioral patterns** focus on communication between objects and responsibility distribution. They deal with **object collaboration** and the **delegation of responsibilities**.
 
-## Patterns in This Folder
+### Key Characteristics:
+- Define **how objects interact** and distribute responsibility
+- Establish clear communication patterns
+- Describe object **behavior and communication**
+- Make systems **loosely coupled** and **highly cohesive**
 
-### Observer (Pub-Sub)
-- **Files:** `04_observer_pattern.cpp`
-- **Intent:** Define one-to-many dependency for automatic notifications
-- **Use Cases:** Event systems, MVC (model notifies views), real-time feeds
-- **Key Concept:** Subject maintains list of observers, notifies them of changes
+---
 
-### Strategy
-- **Status:** Coming soon
-- **Intent:** Define family of algorithms, make them interchangeable
+## All 11 Behavioral Patterns
+
+### 1. **Chain of Responsibility** ✓
+- **File:** `01_chain_of_responsibility_pattern.cpp`
+- **Intent:** Pass requests along a chain of handlers
+- **Problem:** Multiple handlers; don't know in advance which will handle request
+- **Solution:** Each handler decides to handle or pass to next
+- **Use Cases:** Support ticket routing, logger levels, approval workflows
+- **Key Concept:** Decoupled sender, flexible handler chain
+
+### 2. **Command** ✓
+- **File:** `02_command_pattern.cpp`
+- **Intent:** Encapsulate requests as objects
+- **Problem:** Decouple sender from receivers; need undo/redo/queuing
+- **Solution:** Wrap request in command object with execute/undo
+- **Use Cases:** Undo/redo, macro recording, job queues, transactions
+- **Key Concept:** Action objects, parameterized operations
+
+### 3. **Iterator** ✓
+- **File:** `03_iterator_pattern.cpp`
+- **Intent:** Access elements sequentially without exposing structure
+- **Problem:** Different collections need different traversal logic
+- **Solution:** Uniform iterator interface for all collections
+- **Use Cases:** Container traversal, cursor in databases, file iteration
+- **Key Concept:** Standardized sequential access
+
+### 4. **Observer** ✓
+- **File:** `04_observer_pattern.cpp`
+- **Intent:** Define one-to-many dependency; notify observers automatically
+- **Problem:** Multiple objects need notification when subject changes
+- **Solution:** Observers subscribe; subject broadcasts changes
+- **Use Cases:** Event systems, MVC, reactive programming, Pub-Sub
+- **Key Concept:** Automatic notification, loose coupling
+
+### 5. **State** ✓
+- **File:** `05_state_pattern.cpp`
+- **Intent:** Allow object to alter behavior when internal state changes
+- **Problem:** Behavior changes with state; giant if-else chains
+- **Solution:** Each state is separate class; context delegates
+- **Use Cases:** State machines, TCP connections, game states, workflows
+- **Key Concept:** State-specific behavior, automatic transitions
+
+### 6. **Strategy** ✓
+- **File:** `06_strategy_pattern.cpp`
+- **Intent:** Define family of algorithms; make them interchangeable
+- **Problem:** Multiple algorithms; can't hardcode one
+- **Solution:** Each algorithm is separate class; client chooses
 - **Use Cases:** Sorting algorithms, payment methods, compression algorithms
-- **Key Concept:** Encapsulate algorithms in separate classes
+- **Key Concept:** Algorithm encapsulation, runtime selection
 
-### Command
-- **Status:** Coming soon
-- **Intent:** Encapsulate request as object
-- **Use Cases:** Undo/redo, macro recording, job queues
-- **Key Concept:** Action objects with execute() method
+### 7. **Mediator** ✓
+- **File:** `07_mediator_pattern.cpp`
+- **Intent:** Centralize complex communications between objects
+- **Problem:** Objects have complex interactions; tight coupling
+- **Solution:** Mediator handles all communication
+- **Use Cases:** Air traffic control, chat systems, UI components, event routing
+- **Key Concept:** Centralized communication, loose coupling
 
-### State
-- **Status:** Coming soon
-- **Intent:** Alter behavior when internal state changes
-- **Use Cases:** TCP connections, vending machines, workflow engines
-- **Key Concept:** State-specific behavior in state objects
+### 8. **Template Method** ✓
+- **File:** `08_template_method_pattern.cpp`
+- **Intent:** Define algorithm skeleton; subclasses override specific steps
+- **Problem:** Multiple algorithms with similar structure but different details
+- **Solution:** Base class defines structure; subclasses implement steps
+- **Use Cases:** Frameworks, data processing, report generation, game AI
+- **Key Concept:** Code reuse, enforced structure, hook methods
 
-### Template Method
-- **Status:** Coming soon
-- **Intent:** Define algorithm skeleton, let subclasses override specific steps
-- **Use Cases:** Frameworks, data parsing, game AI
-- **Key Concept:** Hook methods for customization
+### 9. **Visitor** ✓
+- **File:** `09_visitor_pattern.cpp`
+- **Intent:** Represent operations on object structure without changing classes
+- **Problem:** Many operations on complex structures; modifying classes is hard
+- **Solution:** Operations visit elements; elements accept visitors
+- **Use Cases:** Compilers, tax systems, file operations, report generators
+- **Key Concept:** External operations, double dispatch, working with Composite
 
-### Chain of Responsibility
-- **Status:** Coming soon
-- **Intent:** Pass requests along chain of handlers
-- **Use Cases:** Event bubbling, logging chains, approval workflows
-- **Key Concept:** Decoupled sender and receiver
+### 10. **Memento** ✓
+- **File:** `10_memento_pattern.cpp`
+- **Intent:** Capture and externalize state without violating encapsulation
+- **Problem:** Save/restore state without exposing internals
+- **Solution:** Memento captures state; originator restores from it
+- **Use Cases:** Undo/redo, game checkpoints, database transactions, rollback
+- **Key Concept:** State snapshots, preserved encapsulation
 
-### Iterator
-- **Status:** Coming soon
-- **Intent:** Access elements sequentially without exposing representation
-- **Use Cases:** Container traversal, database cursors
-- **Key Concept:** Standardized traversal interface
-
-### Mediator
-- **Status:** Coming soon
+### 11. **Interpreter** ✓
+- **File:** `11_interpreter_pattern.cpp`
+- **Intent:** Define representation for language grammar; provide interpreter
+- **Problem:** Need to parse/interpret simple language or expressions
+- **Solution:** Grammar as classes; interpreter evaluates expressions
+- **Use Cases:** SQL parsers, expression evaluators, query languages, DSLs
+- **Key Concept:** AST (Abstract Syntax Tree), recursive interpretation
 - **Intent:** Define object that encapsulates how objects interact
 - **Use Cases:** Chat rooms, air traffic control, UI component coordination
 - **Key Concept:** Centralized communication
