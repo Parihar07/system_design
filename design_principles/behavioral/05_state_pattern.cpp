@@ -42,6 +42,9 @@
 // ✗ Hard to understand state transitions
 // ✗ Bug-prone when adding new states
 //
+class DraftState;
+class PublishedState;
+class ArchivedState;
 // Example messy code WITHOUT State pattern:
 //   class Document {
 //       void edit(string text) {
@@ -91,6 +94,10 @@ public:
     virtual void edit(Document &doc, const std::string &text) = 0;
     virtual void publish(Document &doc) = 0;
     virtual void archive(Document &doc) = 0;
+    class ClosedState;
+    class ListenState;
+    class EstablishedState;
+    class CloseWaitState;
     virtual void restore(Document &doc) = 0;
     virtual std::string getStateName() const = 0;
 };

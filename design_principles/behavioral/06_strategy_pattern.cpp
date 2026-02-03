@@ -21,6 +21,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 // ============================================================================
 // EXAMPLE 1: Sorting Algorithms
